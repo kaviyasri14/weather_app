@@ -1,0 +1,50 @@
+<div class="forminput">
+  <ng-select [items]="cities2" [virtualScroll]="true" bindLabel="City" bindValue="City" placeholder="Select city"
+    [(ngModel)]="selectedCityId" (change)="citypass()">
+  </ng-select>
+</div>
+<br />
+
+<div class="main-container" id="main-icon" >
+
+  <div class="forecast" style="margin-right:35px;">
+    <div class="row">
+      <div class=" col" *ngFor="let dayInfo of service.dayTileList"  [ngClass]="{'_ngcontent-c0':selectedIndex==dayInfo.dayNum}">
+        <div (click)="updategraph(dayInfo.dayNum);">
+          <div class='col' id="grid1" >
+            <p class="day" style="font-weight: bold;">{{dayInfo.day}}</p>
+            <p>
+
+              <span class="maxtemp" style="font-weight: bold;">{{dayInfo.maxTemp}}<sup>o</sup></span>
+              <span>{{dayInfo.minTemp}}<sup>o</sup></span>
+            </p>
+            <img src="{{dayInfo.imageURL}}">
+            <p>{{dayInfo.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='sub-container'>
+    <div *ngIf="service.presdet != undefined && service.temperature != undefined">
+      <app-cloudicon [temp]="service.temperature" [iconimg]="service.presdet"></app-cloudicon>
+    </div>
+   
+    <div class="loader" *ngIf="service.noload">
+
+</div>
+    <div *ngIf="service.templist != undefined && service.templist.length">
+      <app-graph [date]="service.datelist" [temp]="service.templist"></app-graph>
+    
+    </div>
+    <div *ngIf="service.presdet != undefined">
+      <app-details [details]="service.presdet"></app-details>
+    </div>
+
+    <div  *ngIf="service.sunx != undefined && service.suny != undefined " >
+      <app-futureicons [sunx]="service.sunx" [suny]="service.suny"></app-futureicons>
+     
+    </div>
+   
+  </div> 
+</div>

@@ -1,0 +1,18 @@
+.boldtext{
+font-weight: bold;
+}
+.col{
+    float: left;
+    width: 50%;
+    text-align: left;
+}
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+span{
+    display: block;
+    margin-right: 10px;
+}
+ 

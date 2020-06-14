@@ -1,0 +1,19 @@
+ .imagepart{
+   padding: 30px;
+    
+} 
+
+.degval{
+    font-size: 30px;
+    font-weight: bold;
+}
+.temp,.img{
+display: inline;
+}
+.temp{
+    font-size: 30px;
+    font-weight: bold;
+}
+.imgtemp{
+transform: scale(1.5);
+}
