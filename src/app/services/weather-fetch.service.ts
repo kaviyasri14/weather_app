@@ -29,10 +29,13 @@ noload
     const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=27d43832d2a4adcb97fcbfa23db130aa`;
     this.noload = true;
     this. http.get(url)
-    .subscribe(res => {      
+    .subscribe( 
+      res => {  
+       
       const data = res.json();
+      
 this.noload=false
-      console.log(data);
+      console.log(data.cod);
       this.summary = {
         name: res.json().city.name,
         country: res.json().city.country,
@@ -164,7 +167,7 @@ this.noload=false
 
     this.templist = [];
     this.datelist = [];
-    this.dayWiseMap[0].forEach(element => {
+    this.dayWiseMap[new Date().getDay()].forEach(element => {
       this.templist.push(Math.round(element.main.temp - 270));
       this.datelist.push(moment(element.dt * 1000).format( 'h:mm a'));
     });
@@ -196,7 +199,13 @@ symbol:'url(../../assets/images/moon.png)'
      this.sunx = this.sungraph.x; 
      this.suny = this.sungraph.y;
     console.log(this.sunx,this.suny)
-    });
+  },err=>{
+    this.noload=false;
+    alert("City data not found")
+  }
+
+    
+    );
 
    
 

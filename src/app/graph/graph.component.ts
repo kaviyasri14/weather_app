@@ -23,11 +23,15 @@ export class GraphComponent implements OnChanges {
         text:''
     },     
       xAxis: {
+        gridLineColor: 'black',
+        gridLineWidth:1,
         categories: this.firstlist,
        
       },
       yAxis: {
-       
+       title:{
+         text:""
+       }
       },
       plotOptions: {
         area: {

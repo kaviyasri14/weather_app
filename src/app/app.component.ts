@@ -25824,6 +25824,7 @@ export class AppComponent {
   // days =["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
   // location = 'Indira Nagar, Gachibowli, Hyderabad, Telangana';
   
+  
   // status;
   // cityName = '';
   data;
